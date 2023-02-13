@@ -14,6 +14,8 @@ input.addEventListener('input', debounce(getCountryInfo, DEBOUNCE_DELAY));
 function getCountryInfo(event) {
   searchQuery = event.target.value.trim();
   if (searchQuery === ``) {
+    resetCountryCard();
+    resetCountriesList();
     return;
   }
   fetchCountries(searchQuery)
