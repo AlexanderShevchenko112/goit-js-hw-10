@@ -13,6 +13,9 @@ input.addEventListener('input', debounce(getCountryInfo, DEBOUNCE_DELAY));
 
 function getCountryInfo(event) {
   searchQuery = event.target.value.trim();
+  if (searchQuery === ``) {
+    return;
+  }
   fetchCountries(searchQuery)
     .then(response => {
       if (!response.ok) {
